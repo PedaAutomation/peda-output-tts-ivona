@@ -1,0 +1,16 @@
+{
+  "name": "peda-output-tts-ivona",
+  "description": "Ivona TTS module for Peda",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": {
+    "name": "Julius Möller",
+    "email": "the.porenta@web.de"
+  },
+  "dependencies": {
+    "coffee-script": "1.7.1",
+    "lame": "1.1.1",
+    "aws4": "0.2.1",
+    "speaker": "0.2.1"
+  }
+}
