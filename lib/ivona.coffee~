@@ -26,6 +26,7 @@ speak = (text) ->
   }
   aws4.sign opts 
   https.request opts, (res) -> 
+    console.log res
     res.pipe process.stdout  
     res.pipe fileStream 
   .end()
