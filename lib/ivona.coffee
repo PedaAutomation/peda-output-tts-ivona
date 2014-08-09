@@ -20,9 +20,7 @@ speak = (text) ->
 
   opts = { 
     host: 'tts.eu-west-1.ivonacloud.com', 
-    path: '/CreateSpeech?Input.Data='+ text 
-    + '&Input.Type=text%2Fplain&OutputFormat.Codec=MP3&OutputFormat.SampleRate=22050'
-    +'&Parameters.Rate=slow&Voice.Name=Marlene&Voice.Language=' + language 
+    path: '/CreateSpeech?Input.Data='+ text + '&Input.Type=text%2Fplain&OutputFormat.Codec=MP3&OutputFormat.SampleRate=22050&Parameters.Rate=slow&Voice.Name=Marlene&Voice.Language=' + language 
   }
   aws4.sign opts 
   https.request opts, (res) ->
