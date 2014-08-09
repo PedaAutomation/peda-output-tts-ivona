@@ -6,6 +6,6 @@ module.exports = (slave) ->
   slave.setType "output"
   slave.setName "tts"
   
-  slave.on 'output', (text) ->
-    ivona.speak text
+  slave.on 'output', (data) ->
+    ivona.speak data.data, data.language
   

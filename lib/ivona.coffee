@@ -5,9 +5,10 @@ aws4  = require 'aws4'
 
 language = "de-DE"
 
-speak = (text) ->
- 
-
+speak = (text, language) ->
+  
+  language = language || "de"
+  
   opts = { 
     region: 'eu-west-1',
     service: 'tts',
