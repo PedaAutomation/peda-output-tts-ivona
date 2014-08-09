@@ -11,12 +11,7 @@ tempFile = "temp.mp3"
 speak = (text) ->
  
   fileStream = fs.createWriteStream tempFile 
-  
-  fileStream.on 'close', ->
-    fs.createReadStream tempFile
-    .pipe new lame.Decoder()
-    .on 'format', (format) ->
-      this.pipe new Speaker (format)
+
 
   opts = { 
     region: 'eu-west-1',
@@ -27,7 +22,9 @@ speak = (text) ->
   aws4.sign opts, { accessKeyId: process.env.IVONA_ACCESS_KEY, secretAccessKey: process.env.IVONA_SECRET_KEY }
 
   https.request opts, (res) ->
-    res.pipe fileStream 
+    res.pipe new lame.Decoder()
+    .on 'format', (format) ->
+      this.pipe new Speaker (format)
   .end()
 
 module.exports.speak = speak
