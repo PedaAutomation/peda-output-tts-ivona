@@ -3,8 +3,8 @@ require("coffee-script").register()
 ivona = require './ivona.coffee'
 
 module.exports = (slave) ->
-  slaveHelper.setType "output"
-  slaveHelper.setName "tts"
+  slave.setType "output"
+  slave.setName "tts"
   
   slave.on 'output', (text) ->
     ivona.speak text
