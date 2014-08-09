@@ -22,11 +22,11 @@ speak = (text) ->
     region: 'eu-west-1',
     service: 'tts',
     host: 'tts.eu-west-1.ivonacloud.com', 
-    path: '/CreateSpeech?Input.Data='+ encodeURIComponent(text) + '&Input.Type=text%2Fplain&OutputFormat.Codec=MP3&OutputFormat.SampleRate=22050&Parameters.Rate=slow&Voice.Name=Marlene&Voice.Language=' + language 
+    path: '/CreateSpeech?Input.Data='+ encodeURIComponent(text) + '&Input.Type=text%2Fplain&OutputFormat.Codec=MP3&OutputFormat.SampleRate=22050&Voice.Name=Hans' 
   }
-  aws4.sign opts 
-  https.request opts, (res) -> 
-    res.pipe process.stdout  
+  aws4.sign opts, { accessKeyId: process.env.IVONA_ACCESS_KEY, secretAccessKey: process.env.IVONA_SECRET_KEY }
+
+  https.request opts, (res) ->
     res.pipe fileStream 
   .end()
 
