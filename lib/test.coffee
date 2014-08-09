@@ -1,4 +1,4 @@
 require("coffee-script").register()
 ivona = require './ivona.coffee'
 
-ivona.speak("Wohnzimmerlampe wurde eingeschaltet.")
+ivona.speak("Oh hier, guck mal, Sprachausgabe bei Peda..")
