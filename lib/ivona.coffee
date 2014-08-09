@@ -1,17 +1,12 @@
-fs = require 'fs'
 lame = require 'lame'
 Speaker = require 'speaker'
-http  = require 'http'
 https = require 'https' 
 aws4  = require 'aws4'
 
 language = "de-DE"
-tempFile = "temp.mp3"
 
 speak = (text) ->
  
-  fileStream = fs.createWriteStream tempFile 
-
 
   opts = { 
     region: 'eu-west-1',
