@@ -7,5 +7,5 @@ module.exports = (slave) ->
   slave.setName "tts"
   
   slave.on 'output', (data) ->
-    ivona.speak data.data, data.language
+    ivona.speak data.data, slave.getLanguage()
   
